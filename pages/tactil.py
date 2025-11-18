@@ -76,6 +76,23 @@ if st.button('R OFF'):
     ret= client1.publish("voice_ctrl_jsq", message)
 
 
+if st.button(MR ON'):
+    act1="my room on"
+    client1= paho.Client("GIT-HUB-jsq")                           
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("voice_ctrl_jsq", message)
+
+if st.button('MR OFF'):
+    act1="my room off"
+    client1= paho.Client("GIT-HUB-jsq")                           
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("voice_ctrl_jsq", message)
+
+
 values = st.slider('Selecciona el rango de valores',0.0, 100.0)
 st.write('Values:', values)
 
