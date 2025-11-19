@@ -37,10 +37,10 @@ st.header("💡 Control de Iluminación")
 # Creación de tres columnas para los botones de las luces
 col1, col2, col3 = st.columns(3)
 
-# Columna 1: Luces Generales (L)
+# Columna 1: Luces Sala (L)
 with col1:
-    st.subheader("General (L)")
-    if st.button('L ON'):
+    st.subheader("Hall (H)")
+    if st.button('H ON'):
         act1="lights on"
         client1= paho.Client("GIT-HUB-jsq")                           
         client1.on_publish = on_publish                          
@@ -53,7 +53,7 @@ with col1:
     else:
         st.write('')
     
-    if st.button('L OFF'):
+    if st.button('H OFF'):
         act1="lights off"
         client1= paho.Client("GIT-HUB-jsq")                           
         client1.on_publish = on_publish                          
@@ -67,8 +67,8 @@ with col1:
 
 # Columna 2: Habitación (R)
 with col2:
-    st.subheader("Habitación (R)")
-    if st.button('R ON'):
+    st.subheader("Baño (B)")
+    if st.button('B ON'):
         act1="room on"
         client1= paho.Client("GIT-HUB-jsq")                           
         client1.on_publish = on_publish                          
@@ -76,7 +76,7 @@ with col2:
         message =json.dumps({"Act1":act1})
         ret= client1.publish("voice_ctrl_jsq", message)
     
-    if st.button('R OFF'):
+    if st.button('B OFF'):
         act1="room off"
         client1= paho.Client("GIT-HUB-jsq")                           
         client1.on_publish = on_publish                          
