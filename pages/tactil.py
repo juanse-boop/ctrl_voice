@@ -30,71 +30,81 @@ client1.on_message = on_message
 
 
 
-st.title("MQTT Control")
+st.title("🏡 Control Remoto Inteligente (MQTT)")
 
-if st.button('L ON'):
-    act1="lights on"
-    client1= paho.Client("GIT-HUB-jsq")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("voice_ctrl_jsq", message)
- 
-    #client1.subscribe("Sensores")
+st.header("💡 Control de Iluminación")
+
+# Creación de tres columnas para los botones de las luces
+col1, col2, col3 = st.columns(3)
+
+# Columna 1: Luces Generales (L)
+with col1:
+    st.subheader("General (L)")
+    if st.button('L ON'):
+        act1="lights on"
+        client1= paho.Client("GIT-HUB-jsq")                           
+        client1.on_publish = on_publish                          
+        client1.connect(broker,port)  
+        message =json.dumps({"Act1":act1})
+        ret= client1.publish("voice_ctrl_jsq", message)
+     
+        #client1.subscribe("Sensores")
+        
+    else:
+        st.write('')
     
+    if st.button('L OFF'):
+        act1="lights off"
+        client1= paho.Client("GIT-HUB-jsq")                           
+        client1.on_publish = on_publish                          
+        client1.connect(broker,port)  
+        message =json.dumps({"Act1":act1})
+        ret= client1.publish("voice_ctrl_jsq", message)
+        
+    else:
+        st.write('')
+
+
+# Columna 2: Habitación (R)
+with col2:
+    st.subheader("Habitación (R)")
+    if st.button('R ON'):
+        act1="room on"
+        client1= paho.Client("GIT-HUB-jsq")                           
+        client1.on_publish = on_publish                          
+        client1.connect(broker,port)  
+        message =json.dumps({"Act1":act1})
+        ret= client1.publish("voice_ctrl_jsq", message)
     
-else:
-    st.write('')
+    if st.button('R OFF'):
+        act1="room off"
+        client1= paho.Client("GIT-HUB-jsq")                           
+        client1.on_publish = on_publish                          
+        client1.connect(broker,port)  
+        message =json.dumps({"Act1":act1})
+        ret= client1.publish("voice_ctrl_jsq", message)
 
-if st.button('L OFF'):
-    act1="lights off"
-    client1= paho.Client("GIT-HUB-jsq")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("voice_ctrl_jsq", message)
-  
+# Columna 3: Mi Habitación (MR)
+with col3:
+    st.subheader("Mi Habitación (MR)")
+    if st.button('MR ON'):
+        act1="my room on"
+        client1= paho.Client("GIT-HUB-jsq")                           
+        client1.on_publish = on_publish                          
+        client1.connect(broker,port)  
+        message =json.dumps({"Act1":act1})
+        ret= client1.publish("voice_ctrl_jsq", message)
     
-else:
-    st.write('')
+    if st.button('MR OFF'):
+        act1="my room off"
+        client1= paho.Client("GIT-HUB-jsq")                           
+        client1.on_publish = on_publish                          
+        client1.connect(broker,port)  
+        message =json.dumps({"Act1":act1})
+        ret= client1.publish("voice_ctrl_jsq", message)
 
 
-if st.button('R ON'):
-    act1="room on"
-    client1= paho.Client("GIT-HUB-jsq")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("voice_ctrl_jsq", message)
-
-
-if st.button('R OFF'):
-    act1="room off"
-    client1= paho.Client("GIT-HUB-jsq")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("voice_ctrl_jsq", message)
-
-
-if st.button('MR ON'):
-    act1="my room on"
-    client1= paho.Client("GIT-HUB-jsq")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("voice_ctrl_jsq", message)
-
-
-if st.button('MR OFF'):
-    act1="my room off"
-    client1= paho.Client("GIT-HUB-jsq")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("voice_ctrl_jsq", message)
-
-
+st.header("⚙️ Control Analógico y Otros")
 
 values = st.slider('Selecciona el rango de valores',0.0, 100.0)
 st.write('Values:', values)
