@@ -32,8 +32,8 @@ client1.on_message = on_message
 
 st.title("MQTT Control")
 
-if st.button('ON'):
-    act1="ON"
+if st.button('L ON'):
+    act1="lights on"
     client1= paho.Client("GIT-HUB-jsq")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
@@ -46,8 +46,8 @@ if st.button('ON'):
 else:
     st.write('')
 
-if st.button('OFF'):
-    act1="OFF"
+if st.button('L OFF'):
+    act1="lights off"
     client1= paho.Client("GIT-HUB-jsq")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
@@ -67,8 +67,6 @@ if st.button('R ON'):
     message =json.dumps({"Act1":act1})
     ret= client1.publish("voice_ctrl_jsq", message)
 
-else:
-    st.write('')
 
 if st.button('R OFF'):
     act1="room off"
@@ -78,8 +76,6 @@ if st.button('R OFF'):
     message =json.dumps({"Act1":act1})
     ret= client1.publish("voice_ctrl_jsq", message)
 
-else:
-    st.write('')
 
 if st.button('MR ON'):
     act1="my room on"
@@ -89,8 +85,6 @@ if st.button('MR ON'):
     message =json.dumps({"Act1":act1})
     ret= client1.publish("voice_ctrl_jsq", message)
 
-else:
-    st.write('')
 
 if st.button('MR OFF'):
     act1="my room off"
@@ -100,8 +94,6 @@ if st.button('MR OFF'):
     message =json.dumps({"Act1":act1})
     ret= client1.publish("voice_ctrl_jsq", message)
 
-else:
-    st.write('')
 
 
 values = st.slider('Selecciona el rango de valores',0.0, 100.0)
