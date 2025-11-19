@@ -81,7 +81,7 @@ if st.button('R OFF'):
 else:
     st.write('')
 
-if st.button(MR ON'):
+if st.button('MR ON'):
     act1="my room on"
     client1= paho.Client("GIT-HUB-jsq")                           
     client1.on_publish = on_publish                          
