@@ -58,7 +58,7 @@ client1.on_message = on_message
 
 
 
-st.title("INTERFACES MULTIMODALES")
+st.title("🏡 Control Remoto Inteligente (MQTT)")
 
 st.subheader("CONTROL POR VOZ")
 
